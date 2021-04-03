@@ -10,4 +10,8 @@ steps:
     azureSubscription: 'TestAZ'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az storage account list'
+    inlineScript: |
+     az role assignment create \
+      --role "Storage Blob Data Owner" \
+      --assignee "25087b33-d4ae-4752-aefe-94832107568c" \
+      --scope /subscriptions/9cb6f6fd-8502-42f0-860e-85f24603661b/resourceGroups/pulumi/providers/Microsoft.Storage/storageAccounts/sptestjcf
